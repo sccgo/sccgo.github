@@ -1,0 +1,116 @@
+<!--
+=================================================================
+  نُسُقِيبيديا — header.html
+  مكوّن الهيدر القابل للاستخدام في أي صفحة
+
+  طريقة الاستخدام:
+  1. انسخ <link> هذا في <head> الصفحة:
+       <link rel="stylesheet" href="header.css" />
+
+  2. انسخ كل هذا الملف مباشرةً بعد <body>
+
+  3. في أسفل الصفحة قبل </body> أضف:
+       <script src="js/articles.js"></script>
+       <script src="js/search.js"></script>
+       <script src="js/wikipedia.js"></script>
+       <script src="js/app.js"></script>
+
+  ✅ الهيدر يعمل مباشرةً بعد ذلك.
+=================================================================
+-->
+
+<!-- ========== الهيدر الرئيسي ========== -->
+<header id="site-header">
+  <div class="header-inner">
+
+    <!-- الشعار -->
+    <a class="site-logo" onclick="App.navigate('home')" style="cursor:pointer">
+      <div class="logo-circle">نـ</div>
+      <div class="logo-text">
+        نُسُقِيبيديا
+        <span class="logo-sub">NUSUGIPEDIA · الموسوعة الحرة</span>
+      </div>
+    </a>
+
+    <!-- صندوق البحث -->
+    <div class="header-search">
+      <input
+        type="text"
+        id="main-search"
+        placeholder="ابحث في نُسُقِيبيديا..."
+        autocomplete="off"
+      />
+      <button class="search-btn" onclick="App.doSearch()">🔍</button>
+      <div class="search-suggestions" id="search-suggestions"></div>
+    </div>
+
+    <!-- روابط التنقل العلوية -->
+    <nav class="header-nav">
+      <a onclick="App.navigate('home')">الرئيسية</a>
+      <a onclick="App.navigate('portals')">البوابات</a>
+      <a onclick="App.navigate('random')">عشوائية</a>
+
+      <!--
+        منطقة الدخول — يتحكم فيها app.js تلقائياً:
+        • قبل الدخول   → يظهر زر "دخول"
+        • بعد الدخول   → يظهر أفاتار + قائمة منسدلة
+      -->
+      <div id="auth-nav-area">
+        <a onclick="App.navigate('login')" class="btn-login-nav">دخول</a>
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ========== شريط التبويبات ========== -->
+<!--
+  يمكنك حذف هذا الجزء إذا ما تبي التبويبات في صفحتك
+-->
+<div id="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" id="tab-article" onclick="App.switchTab('article')">مقالة</button>
+    <button class="tab-btn"        id="tab-discuss" onclick="App.switchTab('discuss')">نقاش</button>
+    <button class="tab-btn"        id="tab-history" onclick="App.switchTab('history')">تاريخ</button>
+    <button class="tab-btn"        id="tab-edit"    onclick="App.switchTab('edit')">تعديل</button>
+    <span style="flex:1"></span>
+    <button class="tab-btn" onclick="window.print()">طباعة</button>
+    <button class="tab-btn" onclick="App.navigate('random')">مقالة عشوائية</button>
+  </div>
+</div>
+
+<!--
+=================================================================
+  📋 قائمة المقالات المتوفرة حالياً
+  استخدم App.navigate('article-XXX') للانتقال لأي مقالة
+
+  المفتاح             | عنوان المقالة
+  ─────────────────── | ─────────────────────────────────
+  article-main        | نُسُقِيبيديا (الصفحة الرئيسية)
+  article-ai          | الذكاء الاصطناعي
+  article-quantum     | ميكانيكا الكم
+  article-cosmos      | الكون
+  article-arabic      | اللغة العربية
+  article-blackhole   | الثقب الأسود
+  article-cleopatra   | كليوباترا السابعة
+  article-ww2         | الحرب العالمية الثانية
+  article-alrass      | الرس
+  article-hamraniya   | معركة الحمرانية والمقصم
+
+  الصفحات الأخرى:
+  home       → الصفحة الرئيسية
+  portals    → صفحة البوابات
+  search     → نتائج البحث
+  login      → تسجيل الدخول / إنشاء حساب
+  profile    → الملف الشخصي (يتطلب تسجيل دخول)
+  discuss    → صفحة النقاش
+  random     → مقالة عشوائية
+=================================================================
+
+  مثال: لإضافة رابط لمقالة الرس في أي مكان بالصفحة:
+  <a onclick="App.navigate('article-alrass')">الرس</a>
+
+  أو زر:
+  <button onclick="App.navigate('article-ww2')">الحرب العالمية الثانية</button>
+=================================================================
+-->

@@ -1,0 +1,316 @@
+/* =======================================================
+   نُسُقِيبيديا — header.css
+   أضف هذا الملف في أي صفحة عبر:
+   <link rel="stylesheet" href="header.css" />
+   ======================================================= */
+
+/* ── الخطوط ── */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ── المتغيرات الأساسية ── */
+:root {
+  --hdr-black:   #0a0a0a;
+  --hdr-white:   #f5f5f0;
+  --hdr-gray-100:#e8e8e2;
+  --hdr-gray-200:#d0d0c8;
+  --hdr-gray-400:#888880;
+  --hdr-gray-600:#555550;
+  --hdr-gray-800:#222220;
+  --hdr-border:  #c8c8c0;
+  --hdr-error:   #cc0000;
+  --hdr-link:    #0645ad;
+  --hdr-font-body:    'Scheherazade New', serif;
+  --hdr-font-display: 'Amiri', serif;
+  --hdr-font-mono:    'IBM Plex Mono', monospace;
+}
+
+/* ── Reset خفيف (لا يؤثر على باقي الصفحة) ── */
+#site-header *, #site-header *::before, #site-header *::after,
+#tabs-bar    *, #tabs-bar    *::before, #tabs-bar    *::after {
+  box-sizing: border-box;
+}
+
+/* ════════════════════════════════
+   HEADER الشريط العلوي
+   ════════════════════════════════ */
+#site-header {
+  background: var(--hdr-white);
+  border-bottom: 1px solid var(--hdr-border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 58px;
+}
+
+/* ── الشعار ── */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.logo-circle {
+  width: 42px;
+  height: 42px;
+  background: var(--hdr-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hdr-white);
+  font-family: var(--hdr-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.site-logo:hover .logo-circle {
+  transform: scale(1.08);
+}
+.logo-text {
+  font-family: var(--hdr-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--hdr-black);
+  line-height: 1.1;
+}
+.logo-sub {
+  font-family: var(--hdr-font-mono);
+  font-size: 9px;
+  color: var(--hdr-gray-400);
+  letter-spacing: 2px;
+  display: block;
+}
+
+/* ── صندوق البحث ── */
+.header-search {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+}
+.header-search input {
+  width: 100%;
+  padding: 9px 16px 9px 48px;
+  border: 1px solid var(--hdr-border);
+  border-radius: 2px;
+  font-family: var(--hdr-font-body);
+  font-size: 15px;
+  background: var(--hdr-white);
+  color: var(--hdr-black);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  direction: rtl;
+}
+.header-search input:focus {
+  border-color: var(--hdr-black);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.07);
+}
+.search-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 44px;
+  background: var(--hdr-black);
+  border: none;
+  cursor: pointer;
+  color: var(--hdr-white);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 2px 2px 0;
+  transition: background 0.2s;
+}
+.search-btn:hover {
+  background: var(--hdr-gray-800);
+}
+
+/* ── قائمة الاقتراحات ── */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: var(--hdr-white);
+  border: 1px solid var(--hdr-border);
+  border-top: none;
+  z-index: 300;
+  display: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.search-suggestions.show { display: block; }
+.suggestion-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--hdr-font-body);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--hdr-gray-100);
+  transition: background 0.1s;
+  direction: rtl;
+}
+.suggestion-item:hover { background: var(--hdr-gray-100); }
+.suggestion-item:last-child { border-bottom: none; }
+.sug-icon  { color: var(--hdr-gray-400); font-size: 12px; flex-shrink: 0; }
+.sug-type  { font-family: var(--hdr-font-mono); font-size: 9px; color: var(--hdr-gray-400); margin-right: auto; }
+
+/* ── روابط التنقل ── */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.header-nav a,
+.header-nav button {
+  padding: 6px 10px;
+  font-family: var(--hdr-font-mono);
+  font-size: 11px;
+  color: var(--hdr-gray-600);
+  text-decoration: none;
+  border-radius: 2px;
+  letter-spacing: 0.3px;
+  transition: all 0.15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.header-nav a:hover,
+.header-nav button:hover {
+  background: var(--hdr-gray-100);
+  color: var(--hdr-black);
+}
+.btn-login-nav {
+  background: var(--hdr-black) !important;
+  color: var(--hdr-white) !important;
+  border-radius: 2px;
+  padding: 6px 14px !important;
+}
+.btn-login-nav:hover {
+  background: var(--hdr-gray-800) !important;
+}
+
+/* ── أفاتار المستخدم (بعد الدخول) ── */
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  background: var(--hdr-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hdr-white);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--hdr-font-display);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.user-avatar:hover { transform: scale(1.1); }
+
+/* ── القائمة المنسدلة للمستخدم ── */
+.user-menu-wrap { position: relative; }
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--hdr-white);
+  border: 1px solid var(--hdr-border);
+  min-width: 200px;
+  z-index: 300;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  display: none;
+  animation: hdrFadeIn 0.15s ease;
+}
+.user-dropdown.show { display: block; }
+.user-dropdown-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--hdr-border);
+  background: var(--hdr-gray-100);
+}
+.user-dropdown-name  { font-family: var(--hdr-font-display); font-size: 17px; font-weight: 700; }
+.user-dropdown-email { font-family: var(--hdr-font-mono); font-size: 10px; color: var(--hdr-gray-400); }
+.user-dropdown-links a {
+  display: block;
+  padding: 10px 16px;
+  font-family: var(--hdr-font-body);
+  font-size: 14px;
+  color: var(--hdr-black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hdr-gray-100);
+  transition: background 0.1s;
+  cursor: pointer;
+  direction: rtl;
+}
+.user-dropdown-links a:hover { background: var(--hdr-gray-100); }
+.user-dropdown-links a.logout { color: var(--hdr-error); }
+
+/* ════════════════════════════════
+   TABS BAR شريط التبويبات
+   ════════════════════════════════ */
+#tabs-bar {
+  background: var(--hdr-gray-100);
+  border-bottom: 1px solid var(--hdr-border);
+}
+.tabs-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 8px 15px;
+  font-family: var(--hdr-font-mono);
+  font-size: 11px;
+  color: var(--hdr-gray-600);
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--hdr-black); }
+.tab-btn.active {
+  color: var(--hdr-black);
+  border-bottom-color: var(--hdr-black);
+  background: var(--hdr-white);
+  font-weight: 500;
+}
+
+/* ── الأنيميشن ── */
+@keyframes hdrFadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── موبايل ── */
+@media (max-width: 768px) {
+  .header-inner { padding: 0 12px; height: 52px; }
+  .logo-text    { font-size: 18px; }
+  .header-search { max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .header-nav { display: none; }
+}
