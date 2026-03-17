@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="الرس — نُسُقِيبيديا الموسوعة الحرة" />
+<title>الرس — نُسُقِيبيديا</title>
+
+<link rel="stylesheet" href="../../css/style.css" />
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+
+<style>
+.wiki-spinner{
+  display:inline-block;
+  width:14px;
+  height:14px;
+  border:2px solid var(--gray-200);
+  border-top-color:var(--black);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  flex-shrink:0
+}
+.wiki-spinner-wrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--gray-400)
+}
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+.infobox-img{position:relative}
+}
+.flag-text {
+  display: inline-flex;
+  align-items: center;   /* هذا يخليها بالنص تمام */
+  gap: 6px;
+}
+.flag {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  vertical-align: middle; /* يخليه بنفس مستوى النص */
+}
+
+.infobox-section-header {
+  background: #cee0f2;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 8px;
+  margin-top: 8px;
+  border-top: 1px solid #a2a9b1;
+  text-align: center;
+}
+
+.infobox-table td {
+  border: 1px solid #a2a9b1;
+  padding: 6px 8px;
+  vertical-align: middle;
+}
+
+.infobox-table .field-name {
+  background: #d3d3d3; /* رمادي فاتح */
+  color: #000; /* نص أسود */
+  font-weight: bold;
+  width: 40%;
+}
+
+.infobox-table .field-value {
+  background: #f9f9f9; /* أبيض مائل للرمادي */
+}
+
+.flag-inline {
+  vertical-align: middle;
+  width: 20px;
+  height: auto;
+  margin-left: 4px;
+}
+
+.field-empty {
+  color:#000;
+  font-style: Arial;
+</style>
+
+</head>
+
+<body>
+
+<div id="scroll-bar"></div>
+
+<header id="site-header">
+  <div class="header-inner">
+
+    <a class="site-logo" href="../../index.html">
+      <div class="logo-circle">نـ</div>
+      <div class="logo-text">
+        نُسُقِيبيديا
+        <span class="logo-sub">NUSUGIPEDIA · الموسوعة الحرة</span>
+      </div>
+    </a>
+
+    <div class="header-search">
+      <input
+        type="text"
+        id="qs"
+        placeholder="ابحث في نُسُقِيبيديا..."
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter' && this.value.trim()) window.location.href='../../index.html?q='+encodeURIComponent(this.value.trim())"
+      />
+      <button class="search-btn"
+        onclick="var v=document.getElementById('qs').value.trim(); if(v) window.location.href='../../index.html?q='+encodeURIComponent(v)">
+      </button>
+    </div>
+
+    <nav class="header-nav">
+      <a href="../../index.html">الرئيسية</a>
+      <a href="../../index.html">البوابات</a>
+      <a href="../../index.html">عشوائية</a>
+      <a href="../../index.html" class="btn-login-nav">دخول</a>
+    </nav>
+
+  </div>
+</header>
+
+<div id="tabs-bar">
+  <div class="tabs-inner">
+    <a class="tab-btn active" href="#">مقالة</a>
+    <a class="tab-btn" href="#">نقاش</a>
+    <a class="tab-btn" href="#">تاريخ</a>
+    <a class="tab-btn" href="../../index.html">تعديل</a>
+    <span style="flex:1"></span>
+    <a class="tab-btn" href="#" onclick="window.print();return false">طباعة</a>
+    <a class="tab-btn" href="../../index.html">مقالة عشوائية</a>
+  </div>
+</div>
+
+<div class="main-layout">
+
+  <!-- SIDEBAR LEFT -->
+  <aside id="sidebar-left">
+
+    <div class="sb-section">
+      <div class="sb-title">التنقل</div>
+      <ul class="sb-links">
+        <li><a href="../../index.html">الصفحة الرئيسية</a></li>
+        <li><a href="../../index.html">مقالة عشوائية</a></li>
+        <li><a href="../../index.html">البوابات</a></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title">أدوات</div>
+      <ul class="sb-links">
+        <li>
+          <a href="#" onclick="navigator.clipboard?.writeText(location.href); alert('تم نسخ الرابط!'); return false;">
+            نسخ الرابط
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="window.print(); return false;">طباعة</a>
+        </li>
+        <li><a href="../../index.html">أضف لمفضلتي</a></li>
+        <li><a href="../../index.html">تعديل المقالة</a></li>
+        <li>
+          <a href="#" onclick="alert('تم تنزيل PDF!'); return false;">تنزيل PDF</a>
+        </li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main id="content">
+
+    <div class="article-header">
+      <h1 class="article-title">الرس</h1>
+      <div class="article-subtitle">AL-RASS · مدن منطقة القصيم</div>
+    </div>
+
+    <div class="cf" id="article-body">
+     <!-- Article text -->
+<div class="article-text">
+  <p><b>الرَّس</b> هي مدينة <a href="articles/saudi.html">سعودية</a> تقع في غرب القصيم مجاورة لوادي الرمة في شمالية،[2] وهي من المدن المعروفة في نجد ومن أقدم المواقع التي ورد ذكرها في كتب البلدان القديمة فكانت الرس موجودة قبل البعثة النبوية بأكثر من ثلاثمائة سنة، وهي من أهم مدن المملكة العربية السعودية، وتمتاز بموقعها الهام وهوائها العليل ومائها العذب، فهي من أعرق مدن منطقة القصيم، وتعتبر حالياً مركزاً تجارياً هاماً في منطقة القصيم لوجود أسواقها المنوعة ولوجود الكثير من الدوائر الحكومية والمعاهد والكليات دور في تنشيط الحركة التجارية. ويحد الرس منطقة حائل شمالاً ومن الجنوب منطقة الرياض، ومن الشرق منطقة سدير والوشم ومن الغرب منطقة المدينة المنورة.
+      <div class="infobox">
+        <div class="infobox-title">الرس</div>
+
+        <div
+          class="infobox-img wiki-img"
+          data-wiki-title="الرس،_القصيم"
+          style="height:150px;background:linear-gradient(135deg,#c8a96e,#8b6914);display:flex;align-items:center;justify-content:center;overflow:hidden"
+        ><img
+  src="../../images/Rass.jpg"
+  alt="الرس"
+  class="wiki-photo"
+  style="width:100%;height:200px;object-fit:cover;display:block;"
+          />
+          <div class="img-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+            <span style="font-family:serif;font-size:48px;color:rgba(255,255,255,0.2)">الرس</span>
+          </div>
+        </div>
+
+        <div class="infobox-cap">منظر عام لمركز الأمير سلطان الحضاري ، الرس</div>
+
+        <table>
+
+  <div class="infobox-section-header">عن المحافظة</div>
+  <table class="infobox-table">
+    <tr><td class="field-name">اللقب</td><td class="field-value">الحزم</td></tr>
+    <tr><td class="field-name">التأسيس</td><td class="field-value">925 هــ ( 1405 م )</td></tr>
+  </table>
+      <table>
+
+  <div class="infobox-section-header">تقسيم إداري</div>
+  <table class="infobox-table">
+    <tr><td class="field-name">الدولة</td><td class="field-value">  <img src="../../images/SA2.png" alt="علم السعودية" class="flag">
+    <a href"articles/saudi.html">المملكة العربية السعودية</a>  </td></tr>
+    <tr>
+      <td class="field-name">عاصمة لــ</td><td class="field-value"><a href="articles/salrass.html">محافظة الرس</a></td></tr>
+<tr>
+      <td class="field-name">المنطقة</td><td class="field-value"><a href="articles/qassim.html">منطقة القصيم</a></td></tr>
+ 
+  </table>
+          <table>
+           <div class="infobox-section-header">المسؤولون</div>
+  <table class="infobox-table">
+    <tr><td class="field-name">المحافظ</td><td class="field-value">سعود بن حسين العساف</td></tr> 
+             </table>
+                    <table>
+           <div class="infobox-section-header">خصائص جغرافية</div>
+  <table class="infobox-table">
+    <tr><td class="field-name">إحداثيات</td><td class="field-value"><a href="">25.8700361°N 43.5001945°E</a></td></tr> 
+<tr>
+      <td class="field-name">المساحة</td><td class="field-value">1,600 كم ، كم مربع</td></tr>
+ <tr>
+      <td class="field-name">الارتفاع</td><td class="field-value">691 متر</td></tr>
+             </table>
+                <table>
+           <div class="infobox-section-header">السكان</div>
+  <table class="infobox-table">
+    <tr><td class="field-name">التعداد السكاني</td><td class="field-value">107,902 نسمة (2022)</td></tr> 
+        </table>
+      </div>
+      <p class="article-lead">
+<h2>التسمية</h2>
+<fieldset>الرس في اللغة البئر القديمة فإذا أطلقت كلمة الرس فإنما يراد بها البئر القديمة وفقاً لما قال حسان بن ثابت الأنصاري في إحدى قصائده:</fieldset>
+أقمنا على الرس النزوع ثمانيا..
+<br>بأرض جرار عريض المبارك</br>
+<br>ولهذه المحافظة نصيب من اسمها فقد كانت في الزمن القديم مورداً لقبائل العرب ويـؤيد ذلك مـا ذكـره ياقـوت الحموي في معجم البلدان حيث قال: "الرس بفتح أوله والتشديد البئر والرس المعدن والرس إصلاح ما بين القوم"، وقال الفيروز آبادي في كتابه القاموس المحيط: "الرس ابتداء الشيء ومنه رس الحمى ورسيسها والبئر المطوية بالحجارة وبئر كانت لبقية من ثمود كذبوا نبيهم ورسوه في بئر".</br>
+<br>وعلى كل فإن الرس هي البلد المعروف بهذا الاسم منذ قديم الزمن حتى الوقت الحاضر وهي محافظة رئيسية تقع في القصيم في قلب إقليم نجد بالمملكة العربية السعودية على ضفة وادي الرمة الجنوبية، ويربطها بالرياض والحجاز وكبريات مدن المملكة خطوط معبدة فهي على الطريق المؤدي إلى مكة المكرمة في القسم الجنوبي الغربي من إقليم القصيم.</br>
+      </p>
+  
+    </div>
+  </main>
+
+</div>
+
+<footer id="site-footer">
+  <div class="footer-bottom">
+    © ٢٠٢٦ مؤسسة نُسُقِيبيديا
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"></button>
+
+<script>
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  const t = document.body.scrollHeight - window.innerHeight;
+  const bar = document.getElementById('scroll-bar');
+  const btn = document.getElementById('back-top');
+
+  if (bar) {
+    bar.style.height = t > 0 ? (s/t*100)+'%' : '0';
+  }
+
+  if (btn) {
+    btn.classList.toggle('show', s > 300);
+  }
+});
+
+document.querySelectorAll('.wiki-img[data-wiki-title]').forEach(async el => {
+  const title = el.dataset.wikiTitle;
+  if (!title) return;
+
+  try {
+    const r = await fetch(
+      `https://ar.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+    );
+    const d = await r.json();
+    const url = d.thumbnail?.source || d.originalimage?.source;
+
+    if (url) {
+      const img = el.querySelector('img.wiki-photo');
+      const ph = el.querySelector('.img-placeholder');
+
+      if (img) {
+        img.src = url;
+        img.style.display = 'block';
+      }
+      if (ph) ph.style.display = 'none';
+    }
+  } catch(e) {
+    console.error('Image load error:', e);
+  }
+});
+</script>
+
+</body>
+</html>
